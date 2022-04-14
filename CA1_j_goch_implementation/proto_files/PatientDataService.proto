@@ -7,13 +7,13 @@ import "google/protobuf/timestamp.proto";
 // setting some java specific options
 option java_multiple_files = true;
 option java_package = "joanna.CA1.Smarthealth";
-option java_outer_classname = "DataServiceImplBase"; // maybe not needed if multiple files = true
+option java_outer_classname = "PatientDataServiceImplBase"; // maybe not needed if multiple files = true
 
 package Smarthealth;
 
 ////////////////////////////////////////////////////////////////////////////////////
 // The greeter service definition. Defining it's remote methods
-service PatientHealthDataService {
+service PatientDataService {
 	rpc AddPrescription (Prescription) returns (RequestResult) {}
 	rpc GetPrescriptions (GetPrescriptionInfo) returns (stream Prescription) {}
 	rpc AddLabResults (stream LabResult) returns (stream RequestResult) {}
@@ -27,7 +27,6 @@ message RequestResult {
 	// if 'success' is false, then this field may contain additional information
 	string nonSuccessHint = 2;
 }
-
 
 // single prescriptions for a patient
 message Prescription {
