@@ -10,6 +10,7 @@ option java_package = "joanna.CA1.Smarthealth";
 option java_outer_classname = "PermissionServiceImplBase";
 
 package Smarthealth;
+import "Shared.proto";
 
 ////////////////////////////////////////////////////////////////////////////////////
 // The permission service definition. Defining it's remote methods
@@ -21,11 +22,6 @@ service PermissionService {
 
 ////////////////////////////////////////////////////////////////////////////////////
 // define the data structures
-message RequestResult {
-	bool success = 1;
-	// if 'success' is false, then this field may contain additional information
-	string nonSuccessHint = 2;
-}
 
 // paramters needed to do an access change operation
 message AccessInfo {

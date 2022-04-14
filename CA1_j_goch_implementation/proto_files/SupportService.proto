@@ -7,6 +7,7 @@ option java_package = "joanna.CA1.Smarthealth";
 option java_outer_classname = "SupportServiceImplBase";
 
 package Smarthealth;
+import "Shared.proto";
 
 ////////////////////////////////////////////////////////////////////////////////////
 // The greeter service definition. Defining it's remote methods
@@ -18,11 +19,6 @@ service SupportService {
 
 ////////////////////////////////////////////////////////////////////////////////////
 // define the data structures
-message RequestResult {
-	bool success = 1;
-	// if 'success' is false, then this field may contain additional information
-	string nonSuccessHint = 2;
-}
 
 // parameters needed to request chat with support
 message RequestChatInfo {

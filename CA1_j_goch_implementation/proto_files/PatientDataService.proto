@@ -10,6 +10,7 @@ option java_package = "joanna.CA1.Smarthealth";
 option java_outer_classname = "PatientDataServiceImplBase"; // maybe not needed if multiple files = true
 
 package Smarthealth;
+import "Shared.proto";
 
 ////////////////////////////////////////////////////////////////////////////////////
 // The greeter service definition. Defining it's remote methods
@@ -22,11 +23,6 @@ service PatientDataService {
 
 ////////////////////////////////////////////////////////////////////////////////////
 // define the data structures
-message RequestResult {
-	bool success = 1;
-	// if 'success' is false, then this field may contain additional information
-	string nonSuccessHint = 2;
-}
 
 // single prescriptions for a patient
 message Prescription {
