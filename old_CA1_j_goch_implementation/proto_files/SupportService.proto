@@ -1,0 +1,48 @@
+// setting the protobuf version to be used
+syntax = "proto3";
+
+// setting some java specific options
+option java_multiple_files = true;
+option java_package = "joanna.CA1.Smarthealth";
+option java_outer_classname = "SupportServiceImplBase";
+
+package Smarthealth;
+import "Shared.proto";
+
+////////////////////////////////////////////////////////////////////////////////////
+// The greeter service definition. Defining it's remote methods
+service SupportService {
+	rpc RequestPhoneCall (RequestChatInfo) returns (RequestResult) {}
+	rpc QueueUpforChat (QueueUpforChatInfo) returns (stream QueueStatusInfo) {}
+	rpc InteractiveChat (stream ChatMessage) returns (stream ChatMessage) {}
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+// define the data structures
+
+// parameters needed to request chat with support
+message RequestChatInfo {
+	string userID = 1;
+	string subject = 2;
+	string description = 3;
+	string phoneNumber = 4;
+	string preferredTime = 5;
+}
+
+// queing up for chat request info
+message QueueUpforChatInfo {
+	string userID = 1;
+	string subject = 2;
+}
+
+// position in queue update info
+message QueueStatusInfo {
+	string userID = 1;
+	int32 rankInQueue = 2;
+}
+
+// chat message
+message ChatMessage {
+	string userID = 1;
+	string message = 2;
+}

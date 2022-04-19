@@ -1,0 +1,58 @@
+// setting the protobuf version to be used
+syntax = "proto3";
+
+// importing some standard data types from google
+import "google/protobuf/timestamp.proto";
+
+// setting some java specific options
+option java_multiple_files = true;
+option java_package = "joanna.CA1.Smarthealth";
+option java_outer_classname = "PatientDataServiceImplBase"; // maybe not needed if multiple files = true
+
+package Smarthealth;
+import "Shared.proto";
+
+////////////////////////////////////////////////////////////////////////////////////
+// The greeter service definition. Defining it's remote methods
+service PatientDataService {
+	rpc AddPrescription (Prescription) returns (RequestResult) {}
+	rpc GetPrescriptions (GetPrescriptionInfo) returns (stream Prescription) {}
+	rpc AddLabResults (stream LabResult) returns (stream RequestResult) {}
+	rpc AddDoctorNotes(Prescription) returns (RequestResult) {}
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+// define the data structures
+
+// single prescriptions for a patient
+message Prescription {
+	string doctorID = 1;
+	string patientID = 2;
+	google.protobuf.Timestamp date = 3;
+	string prescriptionText = 4;
+}
+
+// lab result
+message LabResult {
+	string doctorID = 1;
+	string patientID = 2;
+	google.protobuf.Timestamp date = 3;
+	string labType = 4;
+	string results = 5;
+	string diagnosis = 6;
+}
+
+// parameters needed to retrieve prescription
+message GetPrescriptionInfo {
+	string patientID = 1;
+}
+
+// doctor note data
+message DoctorNote {
+	string doctorID = 1;
+	string patientID = 2;
+	google.protobuf.Timestamp date = 3;
+	string diagnosis = 4;
+	string recommendations = 5;
+	string notes = 6;
+}
