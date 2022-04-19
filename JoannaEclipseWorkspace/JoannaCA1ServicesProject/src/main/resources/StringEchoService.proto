@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "grpc.Joanna.StringEchoService";
+option java_multiple_files = true;
+option java_outer_classname = "StringEchoServiceImpl";
+
+// this is a minimalistic service based on one of the provided examples to make sure the basics work correctly
+service StringEchoService {
+	// reflects back the string sent
+	rpc EchoString(StringMessage) returns (StringMessage){}
+}
+
+message StringMessage{
+
+	string Data = 1;
+}

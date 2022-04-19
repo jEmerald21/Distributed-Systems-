@@ -1,0 +1,13 @@
+Install maven for command line on OSX
+---------------------------------------
+brew install maven
+
+
+Force Maven to update via command line:
+---------------------------------------
+mvn dependency:resolve
+
+bloomRPC for OSX:
+-----------------
+brew install --cask bloomrpc
+
