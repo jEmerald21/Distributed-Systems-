@@ -107,6 +107,7 @@ grpc/Joanna/PatientDataService/DoctorNote$1.class
 grpc/Joanna/StringEchoService/StringEchoServiceGrpc$1.class
 grpc/Joanna/SupportService/RequestChatInfoOrBuilder.class
 grpc/Joanna/SupportService/QueueStatusInfo$1.class
+grpc/Joanna/PermissionService/PermissionData.class
 grpc/Joanna/SupportService/SupportServiceGrpc$SupportServiceFileDescriptorSupplier.class
 grpc/Joanna/SupportService/RequestResult$1.class
 grpc/Joanna/PermissionService/AccessInfo$Builder.class

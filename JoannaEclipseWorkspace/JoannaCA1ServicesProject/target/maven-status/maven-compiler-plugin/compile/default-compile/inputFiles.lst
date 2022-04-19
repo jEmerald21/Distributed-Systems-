@@ -11,6 +11,7 @@
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PermissionService/PermissionServiceGrpc.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PatientDataService/AppPatientDataServiceServer.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/RequestChatInfo.java
+/Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PermissionService/PermissionData.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PatientDataService/PrescriptionData.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PermissionService/PermissionService.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PermissionService/PermissionsServiceImpl.java
