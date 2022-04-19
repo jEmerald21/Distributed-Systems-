@@ -24,7 +24,7 @@ public class AppPermissionServiceServer
 	{
 		// service config
 		String serviceName = "PermissionService";
-		int port = 9091;
+		int port = 9092;
 		String serviceType = "_grpc._tcp.local";
 		String serviceDescription = "Service for managing permissions and access logs";
 		
