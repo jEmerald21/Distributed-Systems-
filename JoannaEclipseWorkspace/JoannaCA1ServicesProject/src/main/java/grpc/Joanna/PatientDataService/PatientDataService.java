@@ -1,12 +1,7 @@
 package grpc.Joanna.PatientDataService;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.protobuf.Timestamp;
 
 import grpc.Joanna.PatientDataService.PatientDataServiceGrpc.PatientDataServiceImplBase;
 import io.grpc.stub.StreamObserver;
@@ -17,7 +12,7 @@ public class PatientDataService extends PatientDataServiceImplBase {
 	// a simple list storing all prescriptions received to simulate some kind of (virtual/pseudo) database
 	private List<PrescriptionData> allPrescriptions = new ArrayList<>();
 	
-	// GRPC method implementation for storing prescriptions received
+	// GRPC method implementation for storing prescriptions received. Unary service type.
 	@Override
 	public void addPrescription(Prescription request, StreamObserver<RequestResult> responseObserver) {
 		// Console info
@@ -31,7 +26,7 @@ public class PatientDataService extends PatientDataServiceImplBase {
 		responseObserver.onCompleted();
 	}
 	
-	// GRPC method implementation for giving all known prescriptions for a given patentID
+	// GRPC method implementation for giving all known prescriptions for a given patentID. Server side streaming service.
 	@Override
 	public void getPrescriptions(GetPrescriptionInfo request, StreamObserver<Prescription> responseObserver) {
 		//retrieve input
@@ -54,7 +49,7 @@ public class PatientDataService extends PatientDataServiceImplBase {
 		System.out.println("[Server][PatientDataService] => completed get prescriptions request");
 	}
 	
-	// GRPC method implementation for adding doctor notes to a patient file
+	// GRPC method implementation for adding doctor notes to a patient file. Unary service call.
 	@Override
 	public void addDoctorNotes(DoctorNote request, StreamObserver<RequestResult> responseObserver) {
 		// Console info
@@ -67,8 +62,34 @@ public class PatientDataService extends PatientDataServiceImplBase {
 		responseObserver.onCompleted();
 	}
 	
-	public void addLabResults (StreamObserver<LabResult> receiveObserver, StreamObserver<Prescription> responseObserver) {
-		
+	// GRPC method implementation for adding a series of lab results. Bi-directional streaming with server confirming each received lab result
+	@Override
+	public StreamObserver<LabResult> addLabResults(StreamObserver<RequestResult> responseObserver) {
+		// client stream handler
+		return new StreamObserver<LabResult>()  {
+			@Override
+			public void onNext(LabResult labResult) {
+				// console info
+				System.out.println("[Server][PatientDataService] - Received new lab result for " + labResult.getPatientID());
+				// generate streaming update
+				RequestResult reply = RequestResult.newBuilder().setSuccess(true).build();
+				// send reply
+				responseObserver.onNext(reply);
+			}
+
+			@Override
+			public void onError(Throwable t) {
+				// log error
+				System.out.println("[Server][PatientDataService] ==> Error while receiving Lab Result: " + t.getMessage() );
+			}
+
+			@Override
+			public void onCompleted() {
+				System.out.println("[Server][PatientDataService] ==> completed receiving lab results for patient.");
+				responseObserver.onCompleted();
+				
+			}
+		};
 	}
 }
 

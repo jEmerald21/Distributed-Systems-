@@ -58,8 +58,14 @@ public class AppPatientDataServiceServer
 							.start();
 			
 			System.out.println("... running ...");
+	        // shutdown hook
+//	        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//	            System.out.println("gRPC server is shutting down!");
+//	            server.shutdown();
+//	            System.out.println("Terminated: " + server.isTerminated());
+//	        }));
 			server.awaitTermination();
-			System.out.println("Terminated: " + server.isTerminated());
+			
 		}
 		catch (Exception e) 
 		{
