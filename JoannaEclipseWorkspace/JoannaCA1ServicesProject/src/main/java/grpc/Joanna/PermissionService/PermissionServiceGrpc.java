@@ -64,35 +64,35 @@ public final class PermissionServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<grpc.Joanna.PermissionService.AccessInfo,
-      grpc.Joanna.PermissionService.RequestResult> getRemoveDataAcessMethod;
+      grpc.Joanna.PermissionService.RequestResult> getRemoveDataAccessMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "RemoveDataAcess",
+      fullMethodName = SERVICE_NAME + '/' + "RemoveDataAccess",
       requestType = grpc.Joanna.PermissionService.AccessInfo.class,
       responseType = grpc.Joanna.PermissionService.RequestResult.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<grpc.Joanna.PermissionService.AccessInfo,
-      grpc.Joanna.PermissionService.RequestResult> getRemoveDataAcessMethod() {
-    io.grpc.MethodDescriptor<grpc.Joanna.PermissionService.AccessInfo, grpc.Joanna.PermissionService.RequestResult> getRemoveDataAcessMethod;
-    if ((getRemoveDataAcessMethod = PermissionServiceGrpc.getRemoveDataAcessMethod) == null) {
+      grpc.Joanna.PermissionService.RequestResult> getRemoveDataAccessMethod() {
+    io.grpc.MethodDescriptor<grpc.Joanna.PermissionService.AccessInfo, grpc.Joanna.PermissionService.RequestResult> getRemoveDataAccessMethod;
+    if ((getRemoveDataAccessMethod = PermissionServiceGrpc.getRemoveDataAccessMethod) == null) {
       synchronized (PermissionServiceGrpc.class) {
-        if ((getRemoveDataAcessMethod = PermissionServiceGrpc.getRemoveDataAcessMethod) == null) {
-          PermissionServiceGrpc.getRemoveDataAcessMethod = getRemoveDataAcessMethod = 
+        if ((getRemoveDataAccessMethod = PermissionServiceGrpc.getRemoveDataAccessMethod) == null) {
+          PermissionServiceGrpc.getRemoveDataAccessMethod = getRemoveDataAccessMethod = 
               io.grpc.MethodDescriptor.<grpc.Joanna.PermissionService.AccessInfo, grpc.Joanna.PermissionService.RequestResult>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "PermissionService", "RemoveDataAcess"))
+                  "PermissionService", "RemoveDataAccess"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.Joanna.PermissionService.AccessInfo.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.Joanna.PermissionService.RequestResult.getDefaultInstance()))
-                  .setSchemaDescriptor(new PermissionServiceMethodDescriptorSupplier("RemoveDataAcess"))
+                  .setSchemaDescriptor(new PermissionServiceMethodDescriptorSupplier("RemoveDataAccess"))
                   .build();
           }
         }
      }
-     return getRemoveDataAcessMethod;
+     return getRemoveDataAccessMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<grpc.Joanna.PermissionService.RequestLogHistoryInfo,
@@ -167,9 +167,9 @@ public final class PermissionServiceGrpc {
 
     /**
      */
-    public void removeDataAcess(grpc.Joanna.PermissionService.AccessInfo request,
+    public void removeDataAccess(grpc.Joanna.PermissionService.AccessInfo request,
         io.grpc.stub.StreamObserver<grpc.Joanna.PermissionService.RequestResult> responseObserver) {
-      asyncUnimplementedUnaryCall(getRemoveDataAcessMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getRemoveDataAccessMethod(), responseObserver);
     }
 
     /**
@@ -189,12 +189,12 @@ public final class PermissionServiceGrpc {
                 grpc.Joanna.PermissionService.RequestResult>(
                   this, METHODID_GIVE_DATA_ACCESS)))
           .addMethod(
-            getRemoveDataAcessMethod(),
+            getRemoveDataAccessMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 grpc.Joanna.PermissionService.AccessInfo,
                 grpc.Joanna.PermissionService.RequestResult>(
-                  this, METHODID_REMOVE_DATA_ACESS)))
+                  this, METHODID_REMOVE_DATA_ACCESS)))
           .addMethod(
             getGetAccessHistoryMethod(),
             asyncServerStreamingCall(
@@ -238,10 +238,10 @@ public final class PermissionServiceGrpc {
 
     /**
      */
-    public void removeDataAcess(grpc.Joanna.PermissionService.AccessInfo request,
+    public void removeDataAccess(grpc.Joanna.PermissionService.AccessInfo request,
         io.grpc.stub.StreamObserver<grpc.Joanna.PermissionService.RequestResult> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getRemoveDataAcessMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getRemoveDataAccessMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -284,9 +284,9 @@ public final class PermissionServiceGrpc {
 
     /**
      */
-    public grpc.Joanna.PermissionService.RequestResult removeDataAcess(grpc.Joanna.PermissionService.AccessInfo request) {
+    public grpc.Joanna.PermissionService.RequestResult removeDataAccess(grpc.Joanna.PermissionService.AccessInfo request) {
       return blockingUnaryCall(
-          getChannel(), getRemoveDataAcessMethod(), getCallOptions(), request);
+          getChannel(), getRemoveDataAccessMethod(), getCallOptions(), request);
     }
 
     /**
@@ -330,15 +330,15 @@ public final class PermissionServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.Joanna.PermissionService.RequestResult> removeDataAcess(
+    public com.google.common.util.concurrent.ListenableFuture<grpc.Joanna.PermissionService.RequestResult> removeDataAccess(
         grpc.Joanna.PermissionService.AccessInfo request) {
       return futureUnaryCall(
-          getChannel().newCall(getRemoveDataAcessMethod(), getCallOptions()), request);
+          getChannel().newCall(getRemoveDataAccessMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_GIVE_DATA_ACCESS = 0;
-  private static final int METHODID_REMOVE_DATA_ACESS = 1;
+  private static final int METHODID_REMOVE_DATA_ACCESS = 1;
   private static final int METHODID_GET_ACCESS_HISTORY = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
@@ -362,8 +362,8 @@ public final class PermissionServiceGrpc {
           serviceImpl.giveDataAccess((grpc.Joanna.PermissionService.AccessInfo) request,
               (io.grpc.stub.StreamObserver<grpc.Joanna.PermissionService.RequestResult>) responseObserver);
           break;
-        case METHODID_REMOVE_DATA_ACESS:
-          serviceImpl.removeDataAcess((grpc.Joanna.PermissionService.AccessInfo) request,
+        case METHODID_REMOVE_DATA_ACCESS:
+          serviceImpl.removeDataAccess((grpc.Joanna.PermissionService.AccessInfo) request,
               (io.grpc.stub.StreamObserver<grpc.Joanna.PermissionService.RequestResult>) responseObserver);
           break;
         case METHODID_GET_ACCESS_HISTORY:
@@ -432,7 +432,7 @@ public final class PermissionServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PermissionServiceFileDescriptorSupplier())
               .addMethod(getGiveDataAccessMethod())
-              .addMethod(getRemoveDataAcessMethod())
+              .addMethod(getRemoveDataAccessMethod())
               .addMethod(getGetAccessHistoryMethod())
               .build();
         }

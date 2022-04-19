@@ -39,4 +39,24 @@ public interface AccessLogEntryOrBuilder extends
    */
   com.google.protobuf.ByteString
       getOperationTypeBytes();
+
+  /**
+   * <code>string targetPatientID = 4;</code>
+   */
+  java.lang.String getTargetPatientID();
+  /**
+   * <code>string targetPatientID = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getTargetPatientIDBytes();
+
+  /**
+   * <code>string accessorID = 5;</code>
+   */
+  java.lang.String getAccessorID();
+  /**
+   * <code>string accessorID = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getAccessorIDBytes();
 }

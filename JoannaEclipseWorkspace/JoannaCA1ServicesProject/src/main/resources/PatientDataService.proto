@@ -16,7 +16,7 @@ option java_outer_classname = "PatientDataServiceImpl";
 service PatientDataService {
 	rpc AddPrescription (Prescription) returns (RequestResult) {}
 	rpc GetPrescriptions (GetPrescriptionInfo) returns (stream Prescription) {}
-	rpc AddLabResults (stream LabResult) returns (stream RequestResult) {}
+	rpc AddLabResults (stream LabResult) returns (RequestResult) {}
 	rpc AddDoctorNotes(DoctorNote) returns (RequestResult) {}
 }
 

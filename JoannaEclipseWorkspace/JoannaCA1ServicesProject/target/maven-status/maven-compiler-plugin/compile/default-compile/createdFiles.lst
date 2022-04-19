@@ -6,6 +6,7 @@ grpc/Joanna/StringEchoService/StringEchoServiceGrpc$StringEchoServiceBaseDescrip
 grpc/Joanna/PatientDataService/Prescription.class
 grpc/Joanna/PatientDataService/PatientDataServiceGrpc$MethodHandlers.class
 grpc/Joanna/PatientDataService/PatientDataServiceGrpc.class
+grpc/Joanna/PermissionService/PermissionService.class
 grpc/Joanna/StringEchoService/AppStringEchoServiceServer.class
 grpc/Joanna/SupportService/RequestChatInfo$Builder.class
 grpc/Joanna/PermissionService/AccessLogEntryOrBuilder.class
@@ -34,6 +35,7 @@ grpc/Joanna/PatientDataService/PatientDataServiceImpl.class
 grpc/Joanna/PermissionService/RequestLogHistoryInfoOrBuilder.class
 grpc/Joanna/SupportService/SupportServiceGrpc$SupportServiceBaseDescriptorSupplier.class
 grpc/Joanna/StringEchoService/StringEchoServiceGrpc$StringEchoServiceStub.class
+grpc/Joanna/PermissionService/AppPermissionServiceServer.class
 grpc/Joanna/PermissionService/RequestLogHistoryInfo$1.class
 grpc/Joanna/StringEchoService/StringEchoServiceGrpc$StringEchoServiceFileDescriptorSupplier.class
 grpc/Joanna/SupportService/QueueStatusInfoOrBuilder.class
@@ -60,6 +62,7 @@ grpc/Joanna/PatientDataService/Prescription$Builder.class
 grpc/Joanna/StringEchoService/StringEchoServiceGrpc$StringEchoServiceMethodDescriptorSupplier.class
 grpc/Joanna/PermissionService/PermissionServiceGrpc$PermissionServiceBaseDescriptorSupplier.class
 grpc/Joanna/StringEchoService/StringMessage$Builder.class
+grpc/Joanna/PermissionService/AccessLogEntryData.class
 grpc/Joanna/StringEchoService/StringEchoServiceGrpc$StringEchoServiceBlockingStub.class
 grpc/Joanna/SupportService/QueueStatusInfo.class
 grpc/Joanna/PermissionService/RequestLogHistoryInfo.class

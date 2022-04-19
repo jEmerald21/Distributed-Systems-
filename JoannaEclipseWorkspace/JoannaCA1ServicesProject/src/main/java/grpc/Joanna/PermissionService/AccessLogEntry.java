@@ -22,6 +22,8 @@ private static final long serialVersionUID = 0L;
   private AccessLogEntry() {
     accessType_ = "";
     operationType_ = "";
+    targetPatientID_ = "";
+    accessorID_ = "";
   }
 
   @java.lang.Override
@@ -71,6 +73,18 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             operationType_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            targetPatientID_ = s;
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            accessorID_ = s;
             break;
           }
           default: {
@@ -194,6 +208,74 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int TARGETPATIENTID_FIELD_NUMBER = 4;
+  private volatile java.lang.Object targetPatientID_;
+  /**
+   * <code>string targetPatientID = 4;</code>
+   */
+  public java.lang.String getTargetPatientID() {
+    java.lang.Object ref = targetPatientID_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      targetPatientID_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string targetPatientID = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getTargetPatientIDBytes() {
+    java.lang.Object ref = targetPatientID_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      targetPatientID_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ACCESSORID_FIELD_NUMBER = 5;
+  private volatile java.lang.Object accessorID_;
+  /**
+   * <code>string accessorID = 5;</code>
+   */
+  public java.lang.String getAccessorID() {
+    java.lang.Object ref = accessorID_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      accessorID_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string accessorID = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getAccessorIDBytes() {
+    java.lang.Object ref = accessorID_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      accessorID_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -217,6 +299,12 @@ private static final long serialVersionUID = 0L;
     if (!getOperationTypeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, operationType_);
     }
+    if (!getTargetPatientIDBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, targetPatientID_);
+    }
+    if (!getAccessorIDBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, accessorID_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -235,6 +323,12 @@ private static final long serialVersionUID = 0L;
     }
     if (!getOperationTypeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, operationType_);
+    }
+    if (!getTargetPatientIDBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, targetPatientID_);
+    }
+    if (!getAccessorIDBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, accessorID_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -261,6 +355,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAccessType());
     result = result && getOperationType()
         .equals(other.getOperationType());
+    result = result && getTargetPatientID()
+        .equals(other.getTargetPatientID());
+    result = result && getAccessorID()
+        .equals(other.getAccessorID());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -280,6 +378,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAccessType().hashCode();
     hash = (37 * hash) + OPERATIONTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getOperationType().hashCode();
+    hash = (37 * hash) + TARGETPATIENTID_FIELD_NUMBER;
+    hash = (53 * hash) + getTargetPatientID().hashCode();
+    hash = (37 * hash) + ACCESSORID_FIELD_NUMBER;
+    hash = (53 * hash) + getAccessorID().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -427,6 +529,10 @@ private static final long serialVersionUID = 0L;
 
       operationType_ = "";
 
+      targetPatientID_ = "";
+
+      accessorID_ = "";
+
       return this;
     }
 
@@ -460,6 +566,8 @@ private static final long serialVersionUID = 0L;
       }
       result.accessType_ = accessType_;
       result.operationType_ = operationType_;
+      result.targetPatientID_ = targetPatientID_;
+      result.accessorID_ = accessorID_;
       onBuilt();
       return result;
     }
@@ -517,6 +625,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOperationType().isEmpty()) {
         operationType_ = other.operationType_;
+        onChanged();
+      }
+      if (!other.getTargetPatientID().isEmpty()) {
+        targetPatientID_ = other.targetPatientID_;
+        onChanged();
+      }
+      if (!other.getAccessorID().isEmpty()) {
+        accessorID_ = other.accessorID_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -799,6 +915,144 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       operationType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object targetPatientID_ = "";
+    /**
+     * <code>string targetPatientID = 4;</code>
+     */
+    public java.lang.String getTargetPatientID() {
+      java.lang.Object ref = targetPatientID_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        targetPatientID_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string targetPatientID = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTargetPatientIDBytes() {
+      java.lang.Object ref = targetPatientID_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        targetPatientID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string targetPatientID = 4;</code>
+     */
+    public Builder setTargetPatientID(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      targetPatientID_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string targetPatientID = 4;</code>
+     */
+    public Builder clearTargetPatientID() {
+      
+      targetPatientID_ = getDefaultInstance().getTargetPatientID();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string targetPatientID = 4;</code>
+     */
+    public Builder setTargetPatientIDBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      targetPatientID_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object accessorID_ = "";
+    /**
+     * <code>string accessorID = 5;</code>
+     */
+    public java.lang.String getAccessorID() {
+      java.lang.Object ref = accessorID_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        accessorID_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string accessorID = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAccessorIDBytes() {
+      java.lang.Object ref = accessorID_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accessorID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string accessorID = 5;</code>
+     */
+    public Builder setAccessorID(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      accessorID_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string accessorID = 5;</code>
+     */
+    public Builder clearAccessorID() {
+      
+      accessorID_ = getDefaultInstance().getAccessorID();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string accessorID = 5;</code>
+     */
+    public Builder setAccessorIDBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      accessorID_ = value;
       onChanged();
       return this;
     }

@@ -47,17 +47,18 @@ public final class PermissionsServiceImpl {
       "uf/timestamp.proto\"1\n\nAccessInfo\022\020\n\010doct" +
       "orID\030\001 \001(\t\022\021\n\tpatientID\030\002 \001(\t\"<\n\025Request" +
       "LogHistoryInfo\022\020\n\010doctorID\030\001 \001(\t\022\021\n\tpati" +
-      "entID\030\002 \001(\t\"e\n\016AccessLogEntry\022(\n\004date\030\001 " +
-      "\001(\0132\032.google.protobuf.Timestamp\022\022\n\nacces" +
-      "sType\030\002 \001(\t\022\025\n\roperationType\030\003 \001(\t\"8\n\rRe" +
-      "questResult\022\017\n\007success\030\001 \001(\010\022\026\n\016nonSucce" +
-      "ssHint\030\002 \001(\t2\267\001\n\021PermissionService\022/\n\016Gi" +
-      "veDataAccess\022\013.AccessInfo\032\016.RequestResul" +
-      "t\"\000\0220\n\017RemoveDataAcess\022\013.AccessInfo\032\016.Re" +
-      "questResult\"\000\022?\n\020GetAccessHistory\022\026.Requ" +
-      "estLogHistoryInfo\032\017.AccessLogEntry\"\0000\001B9" +
-      "\n\035grpc.Joanna.PermissionServiceB\026Permiss" +
-      "ionsServiceImplP\001b\006proto3"
+      "entID\030\002 \001(\t\"\222\001\n\016AccessLogEntry\022(\n\004date\030\001" +
+      " \001(\0132\032.google.protobuf.Timestamp\022\022\n\nacce" +
+      "ssType\030\002 \001(\t\022\025\n\roperationType\030\003 \001(\t\022\027\n\017t" +
+      "argetPatientID\030\004 \001(\t\022\022\n\naccessorID\030\005 \001(\t" +
+      "\"8\n\rRequestResult\022\017\n\007success\030\001 \001(\010\022\026\n\016no" +
+      "nSuccessHint\030\002 \001(\t2\270\001\n\021PermissionService" +
+      "\022/\n\016GiveDataAccess\022\013.AccessInfo\032\016.Reques" +
+      "tResult\"\000\0221\n\020RemoveDataAccess\022\013.AccessIn" +
+      "fo\032\016.RequestResult\"\000\022?\n\020GetAccessHistory" +
+      "\022\026.RequestLogHistoryInfo\032\017.AccessLogEntr" +
+      "y\"\0000\001B9\n\035grpc.Joanna.PermissionServiceB\026" +
+      "PermissionsServiceImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -89,7 +90,7 @@ public final class PermissionsServiceImpl {
     internal_static_AccessLogEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AccessLogEntry_descriptor,
-        new java.lang.String[] { "Date", "AccessType", "OperationType", });
+        new java.lang.String[] { "Date", "AccessType", "OperationType", "TargetPatientID", "AccessorID", });
     internal_static_RequestResult_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_RequestResult_fieldAccessorTable = new

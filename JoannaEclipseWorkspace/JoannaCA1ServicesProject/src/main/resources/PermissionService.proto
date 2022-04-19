@@ -15,7 +15,7 @@ option java_outer_classname = "PermissionsServiceImpl";
 // The permission service definition. Defining it's remote methods
 service PermissionService {
 	rpc GiveDataAccess (AccessInfo) returns (RequestResult) {}
-	rpc RemoveDataAcess (AccessInfo) returns (RequestResult) {}
+	rpc RemoveDataAccess (AccessInfo) returns (RequestResult) {}
 	rpc GetAccessHistory (RequestLogHistoryInfo) returns (stream AccessLogEntry) {}
 }
 
@@ -39,6 +39,8 @@ message AccessLogEntry {
 	google.protobuf.Timestamp date = 1;
 	string accessType = 2;
 	string operationType = 3;
+	string targetPatientID = 4;
+	string accessorID = 5;
 }
 
 message RequestResult {

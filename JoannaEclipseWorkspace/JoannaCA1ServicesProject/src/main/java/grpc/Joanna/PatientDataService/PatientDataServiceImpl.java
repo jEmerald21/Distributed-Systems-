@@ -62,15 +62,15 @@ public final class PatientDataServiceImpl {
       "gle.protobuf.Timestamp\022\021\n\tdiagnosis\030\004 \001(" +
       "\t\022\027\n\017recommendations\030\005 \001(\t\022\r\n\005notes\030\006 \001(" +
       "\t\"8\n\rRequestResult\022\017\n\007success\030\001 \001(\010\022\026\n\016n" +
-      "onSuccessHint\030\002 \001(\t2\351\001\n\022PatientDataServi" +
+      "onSuccessHint\030\002 \001(\t2\347\001\n\022PatientDataServi" +
       "ce\0222\n\017AddPrescription\022\r.Prescription\032\016.R" +
       "equestResult\"\000\022;\n\020GetPrescriptions\022\024.Get" +
-      "PrescriptionInfo\032\r.Prescription\"\0000\001\0221\n\rA" +
+      "PrescriptionInfo\032\r.Prescription\"\0000\001\022/\n\rA" +
       "ddLabResults\022\n.LabResult\032\016.RequestResult" +
-      "\"\000(\0010\001\022/\n\016AddDoctorNotes\022\013.DoctorNote\032\016." +
-      "RequestResult\"\000B:\n\036grpc.Joanna.PatientDa" +
-      "taServiceB\026PatientDataServiceImplP\001b\006pro" +
-      "to3"
+      "\"\000(\001\022/\n\016AddDoctorNotes\022\013.DoctorNote\032\016.Re" +
+      "questResult\"\000B:\n\036grpc.Joanna.PatientData" +
+      "ServiceB\026PatientDataServiceImplP\001b\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -102,7 +102,7 @@ public final class PatientDataServiceGrpc {
       fullMethodName = SERVICE_NAME + '/' + "AddLabResults",
       requestType = grpc.Joanna.PatientDataService.LabResult.class,
       responseType = grpc.Joanna.PatientDataService.RequestResult.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
   public static io.grpc.MethodDescriptor<grpc.Joanna.PatientDataService.LabResult,
       grpc.Joanna.PatientDataService.RequestResult> getAddLabResultsMethod() {
     io.grpc.MethodDescriptor<grpc.Joanna.PatientDataService.LabResult, grpc.Joanna.PatientDataService.RequestResult> getAddLabResultsMethod;
@@ -111,7 +111,7 @@ public final class PatientDataServiceGrpc {
         if ((getAddLabResultsMethod = PatientDataServiceGrpc.getAddLabResultsMethod) == null) {
           PatientDataServiceGrpc.getAddLabResultsMethod = getAddLabResultsMethod = 
               io.grpc.MethodDescriptor.<grpc.Joanna.PatientDataService.LabResult, grpc.Joanna.PatientDataService.RequestResult>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "PatientDataService", "AddLabResults"))
               .setSampledToLocalTracing(true)
@@ -236,7 +236,7 @@ public final class PatientDataServiceGrpc {
                   this, METHODID_GET_PRESCRIPTIONS)))
           .addMethod(
             getAddLabResultsMethod(),
-            asyncBidiStreamingCall(
+            asyncClientStreamingCall(
               new MethodHandlers<
                 grpc.Joanna.PatientDataService.LabResult,
                 grpc.Joanna.PatientDataService.RequestResult>(
@@ -294,7 +294,7 @@ public final class PatientDataServiceGrpc {
      */
     public io.grpc.stub.StreamObserver<grpc.Joanna.PatientDataService.LabResult> addLabResults(
         io.grpc.stub.StreamObserver<grpc.Joanna.PatientDataService.RequestResult> responseObserver) {
-      return asyncBidiStreamingCall(
+      return asyncClientStreamingCall(
           getChannel().newCall(getAddLabResultsMethod(), getCallOptions()), responseObserver);
     }
 

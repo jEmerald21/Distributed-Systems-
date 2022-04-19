@@ -6,7 +6,7 @@ import java.util.List;
 import grpc.Joanna.PatientDataService.PatientDataServiceGrpc.PatientDataServiceImplBase;
 import io.grpc.stub.StreamObserver;
 
-// this is a simple string echo service to help making sure all the basics work 
+// GRPC service implementation for PatentData 
 public class PatientDataService extends PatientDataServiceImplBase {
 	
 	// a simple list storing all prescriptions received to simulate some kind of (virtual/pseudo) database
@@ -62,7 +62,7 @@ public class PatientDataService extends PatientDataServiceImplBase {
 		responseObserver.onCompleted();
 	}
 	
-	// GRPC method implementation for adding a series of lab results. Bi-directional streaming with server confirming each received lab result
+	// GRPC method implementation for adding a series of lab results. Client side streaming
 	@Override
 	public StreamObserver<LabResult> addLabResults(StreamObserver<RequestResult> responseObserver) {
 		// client stream handler
@@ -71,10 +71,6 @@ public class PatientDataService extends PatientDataServiceImplBase {
 			public void onNext(LabResult labResult) {
 				// console info
 				System.out.println("[Server][PatientDataService] - Received new lab result for " + labResult.getPatientID());
-				// generate streaming update
-				RequestResult reply = RequestResult.newBuilder().setSuccess(true).build();
-				// send reply
-				responseObserver.onNext(reply);
 			}
 
 			@Override
@@ -86,6 +82,10 @@ public class PatientDataService extends PatientDataServiceImplBase {
 			@Override
 			public void onCompleted() {
 				System.out.println("[Server][PatientDataService] ==> completed receiving lab results for patient.");
+				// send completion reply
+				RequestResult reply = RequestResult.newBuilder().setSuccess(true).build();
+				responseObserver.onNext(reply);
+				// complete
 				responseObserver.onCompleted();
 				
 			}
