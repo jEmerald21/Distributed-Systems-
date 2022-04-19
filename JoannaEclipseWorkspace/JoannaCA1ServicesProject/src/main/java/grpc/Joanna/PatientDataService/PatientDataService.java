@@ -41,7 +41,8 @@ public class PatientDataService extends PatientDataServiceImplBase {
 		for(int i = 0; i < this.allPrescriptions.size(); i++) {
 			PrescriptionData data = this.allPrescriptions.get(i);
 			// checking if it's an entry for the requested patient
-			if(data.getPatientID() == patientID) {
+			if(data.getPatientID().equals(patientID)) {
+				System.out.println("[Server][PatientDataService] => Found a prescription: " + data.getPrescriptionText());
 				// generate a reply
 				Prescription reply = data.createPrescriptionGRPCObject();
 				// send it
@@ -50,6 +51,7 @@ public class PatientDataService extends PatientDataServiceImplBase {
 		}
 		// finished sending them all. End response stream
 		responseObserver.onCompleted();
+		System.out.println("[Server][PatientDataService] => completed get prescriptions request");
 	}
 	
 	// GRPC method implementation for adding doctor notes to a patient file
