@@ -1,7 +1,6 @@
 package grpc.Joanna.PermissionService;
 
-// handwritten data class to be used to simulate the "virtual" database. this class are the data entries into the array
-// in order to not store the GRPC messages directly
+// handwritten data class to be used to simulate the "virtual" database.  this is to store permissions in an array
 public class PermissionData {	
 	
 	// fields

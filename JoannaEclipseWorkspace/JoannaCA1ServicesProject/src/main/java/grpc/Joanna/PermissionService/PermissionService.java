@@ -37,7 +37,7 @@ public class PermissionService extends PermissionServiceImplBase {
 			message = "Error: doctor has already access";
 		}
 		// generate reply
-		RequestResult reply = RequestResult.newBuilder().setSuccess(hasAlreadyAccess).setNonSuccessHint(message).build();
+		RequestResult reply = RequestResult.newBuilder().setSuccess(hasAlreadyAccess == false).setNonSuccessHint(message).build();
 		// send reply
 		responseObserver.onNext(reply);
 		// terminate reaction
