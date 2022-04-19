@@ -15,7 +15,6 @@ public class PermissionService extends PermissionServiceImplBase {
 	
 	// helper function to know if a doctor has access
 	private boolean hasAccess(String userID, String PatientID) {
-
 		for(int i = 0; i < this.allPermissions.size(); i++) {
 			PermissionData data = this.allPermissions.get(i);
 			// checking if it's an entry for the requested patient
@@ -36,6 +35,10 @@ public class PermissionService extends PermissionServiceImplBase {
 		if(hasAlreadyAccess) {
 			message = "Error: doctor has already access";
 		}
+		else {
+			// adding new access permission into the array for storing permissions
+			allPermissions.add(new PermissionData(request.getPatientID(), request.getDoctorID()));
+		}
 		// generate reply
 		RequestResult reply = RequestResult.newBuilder().setSuccess(hasAlreadyAccess == false).setNonSuccessHint(message).build();
 		// send reply
@@ -53,6 +56,9 @@ public class PermissionService extends PermissionServiceImplBase {
 		String message = "";
 		if(hassAccess == false) {
 			message = "Error: doctor had already no access";
+		} else
+		{
+			// todo remove
 		}
 		// generate reply
 		RequestResult reply = RequestResult.newBuilder().setSuccess(hassAccess).setNonSuccessHint(message).build();

@@ -23,7 +23,7 @@ public class PermissionData {
 	}
 	
 	public boolean IsMatching(String userID, String targetPatientID) {
-	 return this.userID.equals(targetPatientID) && this.userID.equals(userID);
+	 return this.targetPatientID.equals(targetPatientID) && this.userID.equals(userID);
 	}
 	
     @Override
