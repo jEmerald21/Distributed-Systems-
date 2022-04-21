@@ -21,11 +21,11 @@ service SupportService {
 
 // parameters needed to request chat with support
 message RequestChatInfo {
-	string userID = 1;
+	string userID = 1; // int?
 	string subject = 2;
 	string description = 3;
-	string phoneNumber = 4;
-	string preferredTime = 5;
+	string phoneNumber = 4; // to change the type
+	string preferredTime = 5; //change the type
 }
 
 // queuing up for chat request info

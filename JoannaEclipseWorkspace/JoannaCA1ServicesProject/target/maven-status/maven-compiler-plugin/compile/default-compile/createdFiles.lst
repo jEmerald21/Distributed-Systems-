@@ -47,6 +47,7 @@ grpc/Joanna/PatientDataService/LabResult$1.class
 grpc/Joanna/PatientDataService/DoctorNote$Builder.class
 grpc/Joanna/StringEchoService/StringEchoServiceGrpc.class
 grpc/Joanna/PatientDataService/GetPrescriptionInfo$Builder.class
+grpc/Joanna/SupportService/SupportService.class
 grpc/Joanna/PatientDataService/LabResult.class
 grpc/Joanna/PermissionService/AccessLogEntry$Builder.class
 grpc/Joanna/StringEchoService/StringEchoServiceImpl.class
@@ -101,10 +102,12 @@ grpc/Joanna/PermissionService/AccessInfoOrBuilder.class
 grpc/Joanna/PatientDataService/PatientDataServiceGrpc$PatientDataServiceFutureStub.class
 grpc/Joanna/PatientDataService/PatientDataServiceGrpc$PatientDataServiceBaseDescriptorSupplier.class
 grpc/Joanna/PermissionService/RequestResult.class
+grpc/Joanna/SupportService/AppSupportServiceServer.class
 grpc/Joanna/SupportService/QueueUpforChatInfo$Builder.class
 grpc/Joanna/StringEchoService/StringMessage.class
 grpc/Joanna/PatientDataService/DoctorNote$1.class
 grpc/Joanna/StringEchoService/StringEchoServiceGrpc$1.class
+grpc/Joanna/SupportService/SupportService$1.class
 grpc/Joanna/SupportService/RequestChatInfoOrBuilder.class
 grpc/Joanna/SupportService/QueueStatusInfo$1.class
 grpc/Joanna/PermissionService/PermissionData.class
