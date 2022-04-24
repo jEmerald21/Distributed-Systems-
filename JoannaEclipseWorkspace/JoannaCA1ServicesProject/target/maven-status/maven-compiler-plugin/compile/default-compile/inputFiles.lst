@@ -2,6 +2,7 @@
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PatientDataService/GetPrescriptionInfoOrBuilder.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/AppSupportServiceServer.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PermissionService/AccessInfo.java
+/Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/GUIApplication/DiscoveryPanelUI.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/RequestResultOrBuilder.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PermissionService/RequestResult.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/StringEchoService/AppStringEchoServiceServer.java
@@ -20,6 +21,7 @@
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/QueueStatusInfo.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/StringEchoService/StringMessageOrBuilder.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/RequestChatInfoOrBuilder.java
+/Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/GUIApplication/MainWindowGUI.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PatientDataService/LabResultOrBuilder.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/SupportServiceGrpc.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/ChatMessageOrBuilder.java
@@ -35,12 +37,15 @@
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PatientDataService/PatientDataService.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/QueueStatusInfoOrBuilder.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/QueueUpforChatInfo.java
+/Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/GUIApplication/ServiceDiscovery.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PatientDataService/GetPrescriptionInfo.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/StringEchoService/StringEchoServiceGrpc.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PatientDataService/Prescription.java
+/Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/GUIApplication/PatientDataPanelUI.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/SupportService.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PermissionService/AccessLogEntryOrBuilder.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PermissionService/RequestResultOrBuilder.java
+/Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/GUIApplication/App.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/PermissionService/RequestLogHistoryInfo.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/SupportService/RequestResult.java
 /Users/JO/Desktop/NCI/Distributed-Systems-project/JoannaEclipseWorkspace/JoannaCA1ServicesProject/src/main/java/grpc/Joanna/StringEchoService/StringEchoService.java

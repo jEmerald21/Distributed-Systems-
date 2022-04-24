@@ -8,6 +8,7 @@ grpc/Joanna/PatientDataService/PatientDataServiceGrpc$MethodHandlers.class
 grpc/Joanna/PatientDataService/PatientDataServiceGrpc.class
 grpc/Joanna/PermissionService/PermissionService.class
 grpc/Joanna/StringEchoService/AppStringEchoServiceServer.class
+grpc/Joanna/GUIApplication/MainWindowGUI.class
 grpc/Joanna/SupportService/RequestChatInfo$Builder.class
 grpc/Joanna/PermissionService/AccessLogEntryOrBuilder.class
 grpc/Joanna/PermissionService/PermissionServiceGrpc$1.class
@@ -19,6 +20,7 @@ grpc/Joanna/StringEchoService/StringEchoService.class
 grpc/Joanna/PermissionService/PermissionServiceGrpc$MethodHandlers.class
 grpc/Joanna/PatientDataService/RequestResult$1.class
 grpc/Joanna/SupportService/SupportServiceGrpc.class
+grpc/Joanna/PatientDataService/AppPatientDataServiceServer$1.class
 grpc/Joanna/PermissionService/RequestLogHistoryInfo$Builder.class
 grpc/Joanna/PatientDataService/PrescriptionData.class
 grpc/Joanna/SupportService/RequestResultOrBuilder.class
@@ -31,7 +33,9 @@ grpc/Joanna/PatientDataService/PatientDataServiceGrpc$PatientDataServiceImplBase
 grpc/Joanna/PatientDataService/Prescription$1.class
 grpc/Joanna/PatientDataService/PatientDataService$1.class
 grpc/Joanna/PatientDataService/RequestResultOrBuilder.class
+grpc/Joanna/GUIApplication/PatientDataPanelUI.class
 grpc/Joanna/PatientDataService/PatientDataServiceImpl.class
+grpc/Joanna/GUIApplication/DiscoveryPanelUI.class
 grpc/Joanna/PermissionService/RequestLogHistoryInfoOrBuilder.class
 grpc/Joanna/SupportService/SupportServiceGrpc$SupportServiceBaseDescriptorSupplier.class
 grpc/Joanna/StringEchoService/StringEchoServiceGrpc$StringEchoServiceStub.class
@@ -57,6 +61,7 @@ grpc/Joanna/SupportService/RequestResult$Builder.class
 grpc/Joanna/SupportService/ChatMessage.class
 grpc/Joanna/SupportService/SupportServiceGrpc$MethodHandlers.class
 grpc/Joanna/PatientDataService/LabResultOrBuilder.class
+grpc/Joanna/GUIApplication/App.class
 grpc/Joanna/PatientDataService/DoctorNote.class
 grpc/Joanna/PatientDataService/PatientDataServiceGrpc$1.class
 grpc/Joanna/PatientDataService/Prescription$Builder.class
@@ -87,6 +92,7 @@ grpc/Joanna/StringEchoService/StringEchoServiceImpl$1.class
 grpc/Joanna/PermissionService/AccessLogEntry.class
 grpc/Joanna/PermissionService/PermissionServiceGrpc$PermissionServiceFileDescriptorSupplier.class
 grpc/Joanna/SupportService/SupportServiceGrpc$SupportServiceImplBase.class
+grpc/Joanna/GUIApplication/DiscoveryPanelUI$1.class
 grpc/Joanna/PatientDataService/PatientDataServiceImpl$1.class
 grpc/Joanna/PermissionService/PermissionServiceGrpc$PermissionServiceBlockingStub.class
 grpc/Joanna/StringEchoService/StringMessageOrBuilder.class
@@ -94,6 +100,7 @@ grpc/Joanna/SupportService/QueueStatusInfo$Builder.class
 grpc/Joanna/PatientDataService/PatientDataServiceGrpc$PatientDataServiceMethodDescriptorSupplier.class
 grpc/Joanna/PatientDataService/PrescriptionOrBuilder.class
 grpc/Joanna/PermissionService/PermissionServiceGrpc$PermissionServiceStub.class
+grpc/Joanna/GUIApplication/ServiceDiscovery.class
 grpc/Joanna/PatientDataService/PatientDataService.class
 grpc/Joanna/SupportService/SupportServiceGrpc$1.class
 grpc/Joanna/PermissionService/RequestResultOrBuilder.class

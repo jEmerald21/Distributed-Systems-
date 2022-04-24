@@ -116,6 +116,10 @@ private static final long serialVersionUID = 0L;
   public static final int USERID_FIELD_NUMBER = 1;
   private volatile java.lang.Object userID_;
   /**
+   * <pre>
+   * int?
+   * </pre>
+   *
    * <code>string userID = 1;</code>
    */
   public java.lang.String getUserID() {
@@ -131,6 +135,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * int?
+   * </pre>
+   *
    * <code>string userID = 1;</code>
    */
   public com.google.protobuf.ByteString
@@ -218,6 +226,10 @@ private static final long serialVersionUID = 0L;
   public static final int PHONENUMBER_FIELD_NUMBER = 4;
   private volatile java.lang.Object phoneNumber_;
   /**
+   * <pre>
+   * to change the type
+   * </pre>
+   *
    * <code>string phoneNumber = 4;</code>
    */
   public java.lang.String getPhoneNumber() {
@@ -233,6 +245,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * to change the type
+   * </pre>
+   *
    * <code>string phoneNumber = 4;</code>
    */
   public com.google.protobuf.ByteString
@@ -252,6 +268,10 @@ private static final long serialVersionUID = 0L;
   public static final int PREFERREDTIME_FIELD_NUMBER = 5;
   private volatile java.lang.Object preferredTime_;
   /**
+   * <pre>
+   *change the type
+   * </pre>
+   *
    * <code>string preferredTime = 5;</code>
    */
   public java.lang.String getPreferredTime() {
@@ -267,6 +287,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   *change the type
+   * </pre>
+   *
    * <code>string preferredTime = 5;</code>
    */
   public com.google.protobuf.ByteString
@@ -660,6 +684,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object userID_ = "";
     /**
+     * <pre>
+     * int?
+     * </pre>
+     *
      * <code>string userID = 1;</code>
      */
     public java.lang.String getUserID() {
@@ -675,6 +703,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * int?
+     * </pre>
+     *
      * <code>string userID = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -691,6 +723,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * int?
+     * </pre>
+     *
      * <code>string userID = 1;</code>
      */
     public Builder setUserID(
@@ -704,6 +740,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * int?
+     * </pre>
+     *
      * <code>string userID = 1;</code>
      */
     public Builder clearUserID() {
@@ -713,6 +753,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * int?
+     * </pre>
+     *
      * <code>string userID = 1;</code>
      */
     public Builder setUserIDBytes(
@@ -867,6 +911,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object phoneNumber_ = "";
     /**
+     * <pre>
+     * to change the type
+     * </pre>
+     *
      * <code>string phoneNumber = 4;</code>
      */
     public java.lang.String getPhoneNumber() {
@@ -882,6 +930,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * to change the type
+     * </pre>
+     *
      * <code>string phoneNumber = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -898,6 +950,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * to change the type
+     * </pre>
+     *
      * <code>string phoneNumber = 4;</code>
      */
     public Builder setPhoneNumber(
@@ -911,6 +967,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * to change the type
+     * </pre>
+     *
      * <code>string phoneNumber = 4;</code>
      */
     public Builder clearPhoneNumber() {
@@ -920,6 +980,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * to change the type
+     * </pre>
+     *
      * <code>string phoneNumber = 4;</code>
      */
     public Builder setPhoneNumberBytes(
@@ -936,6 +1000,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object preferredTime_ = "";
     /**
+     * <pre>
+     *change the type
+     * </pre>
+     *
      * <code>string preferredTime = 5;</code>
      */
     public java.lang.String getPreferredTime() {
@@ -951,6 +1019,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *change the type
+     * </pre>
+     *
      * <code>string preferredTime = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -967,6 +1039,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *change the type
+     * </pre>
+     *
      * <code>string preferredTime = 5;</code>
      */
     public Builder setPreferredTime(
@@ -980,6 +1056,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *change the type
+     * </pre>
+     *
      * <code>string preferredTime = 5;</code>
      */
     public Builder clearPreferredTime() {
@@ -989,6 +1069,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *change the type
+     * </pre>
+     *
      * <code>string preferredTime = 5;</code>
      */
     public Builder setPreferredTimeBytes(

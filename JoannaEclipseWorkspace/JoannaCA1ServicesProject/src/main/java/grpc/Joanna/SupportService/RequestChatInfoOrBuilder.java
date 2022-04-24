@@ -8,10 +8,18 @@ public interface RequestChatInfoOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * int?
+   * </pre>
+   *
    * <code>string userID = 1;</code>
    */
   java.lang.String getUserID();
   /**
+   * <pre>
+   * int?
+   * </pre>
+   *
    * <code>string userID = 1;</code>
    */
   com.google.protobuf.ByteString
@@ -38,20 +46,36 @@ public interface RequestChatInfoOrBuilder extends
       getDescriptionBytes();
 
   /**
+   * <pre>
+   * to change the type
+   * </pre>
+   *
    * <code>string phoneNumber = 4;</code>
    */
   java.lang.String getPhoneNumber();
   /**
+   * <pre>
+   * to change the type
+   * </pre>
+   *
    * <code>string phoneNumber = 4;</code>
    */
   com.google.protobuf.ByteString
       getPhoneNumberBytes();
 
   /**
+   * <pre>
+   *change the type
+   * </pre>
+   *
    * <code>string preferredTime = 5;</code>
    */
   java.lang.String getPreferredTime();
   /**
+   * <pre>
+   *change the type
+   * </pre>
+   *
    * <code>string preferredTime = 5;</code>
    */
   com.google.protobuf.ByteString

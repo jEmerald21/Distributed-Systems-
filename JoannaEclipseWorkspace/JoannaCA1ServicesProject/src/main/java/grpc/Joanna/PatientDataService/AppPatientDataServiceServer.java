@@ -79,7 +79,7 @@ public class AppPatientDataServiceServer
 	// Register JmDNS
 	private void registerWithJmDNS(String serviceType, String serviceName, int port, String serviceDescription)
 	{
-        try
+		try
         {
         	System.out.print("JmDNS ... ");
             // Register the service with jmDNS
@@ -87,6 +87,24 @@ public class AppPatientDataServiceServer
             ServiceInfo serviceInfo = ServiceInfo.create(serviceType, serviceName, port, serviceDescription);
             jmdns.registerService(serviceInfo);
             System.out.println(" registered the service: " + serviceName + " at " + port + " as " + serviceType);
+            
+    		// set up a callback function that unregisters the service with jnDNS when the app is terminated. Reference: https://stackoverflow.com/questions/63687/calling-function-when-program-exits-in-java
+    		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+    		    public void run() {
+    		    	try {
+    		    		// unregistering the service in jnDNS: https://stackoverflow.com/questions/23805893/android-jmdns-doesnt-discover-devices
+    		    	    if (jmdns != null) {
+    		    	    	System.out.print(" Unregistering JnDNS, this will take a while ...");
+    		    	    	jmdns.unregisterAllServices();
+    		    	    	jmdns.close();
+    		    	    	System.out.println(" ... completed.");
+    		    	    }
+    		    	} catch (Exception e) {
+    		    	    e.printStackTrace();
+    		    	}
+    		        
+    		    }
+    		}));
         } 
         catch (Exception e)
         {
