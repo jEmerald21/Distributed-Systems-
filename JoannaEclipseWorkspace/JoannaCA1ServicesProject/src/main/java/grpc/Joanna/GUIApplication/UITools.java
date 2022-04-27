@@ -1,6 +1,5 @@
 package grpc.Joanna.GUIApplication;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -15,6 +14,7 @@ import javax.swing.text.DefaultCaret;
 public final class UITools {
 	
 	final static Font formFont = new Font("Tahoma", Font.PLAIN, 15);
+	final static Font headerFont = new Font("Tahoma", Font.BOLD, 18);
 	
 	private UITools() {}; 
 	
@@ -63,7 +63,7 @@ public final class UITools {
 		JPanel consolePanel = new JPanel();
 		JTextArea textArea = new JTextArea (" " + initialText + "\n");
 		textArea.setColumns(78);
-		textArea.setRows(15);
+		textArea.setRows(2);
 		DefaultCaret caret = (DefaultCaret) textArea.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE); // forcing the text area to automatically scroll down. As described here: https://stackoverflow.com/questions/9000649/automatically-scroll-to-the-bottom-of-a-text-area
 		JScrollPane scroll = new JScrollPane (textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);

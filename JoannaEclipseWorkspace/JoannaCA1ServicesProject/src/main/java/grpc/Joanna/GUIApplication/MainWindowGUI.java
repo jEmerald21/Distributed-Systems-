@@ -10,7 +10,14 @@ public class MainWindowGUI {
 	
 	private DiscoveryPanelUI discoveryUI;
 	private PatientDataPanelUI patientDataPanel;
+	private ServiceAddressRegistry discoveryInfo;
 	
+	// constructor
+	public MainWindowGUI(ServiceAddressRegistry info) {
+		this.discoveryInfo = info;
+	}
+	
+	// build the main UI
 	public void Build() {
 
 		// basic window creation in custom method of this class
@@ -20,17 +27,17 @@ public class MainWindowGUI {
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT );
         tabbedPane.setBorder(null);
         
-        // panel pages of the tabbed view
+        // panel pages of the tabed view
         discoveryUI = new DiscoveryPanelUI(); // new JPanel(new BorderLayout());
         discoveryUI.setBackground(new Color(192,179,160));
         tabbedPane.addTab("Service Discovery", discoveryUI);
         tabbedPane.setBackgroundAt(0, new Color(253,235,211)); // tab button colour
         //this.populateDiscoveryPanel(discoveryPanel);
         
-        patientDataPanel = new PatientDataPanelUI();
+        patientDataPanel = new PatientDataPanelUI(discoveryInfo); // passing reference to service discovery info class instance
         patientDataPanel.setBackground(new Color(38,78,112));
         tabbedPane.addTab("Patient Data", patientDataPanel);
-        tabbedPane.setBackgroundAt(1, new Color(80,163,233)); // tab button colour
+        tabbedPane.setBackgroundAt(1, new Color(80,163,233)); // tab button color
         
         JPanel permissionsPanel = new JPanel();
         permissionsPanel.setBackground(new Color(103,145,134));
@@ -47,6 +54,7 @@ public class MainWindowGUI {
         tabbedPane.addTab("String Echo", echoPanel);
         tabbedPane.setBackgroundAt(4, Color.pink);  
  
+        
         // add JTabbedPane to window 
         window.add(tabbedPane);
         // show window
@@ -57,7 +65,7 @@ public class MainWindowGUI {
 	    // GUI window 
 		JFrame window = new JFrame("Joanna's Services Control GUI");
         int width = 980;
-        int height = 645;
+        int height = 725;
         // set size
         window.setSize(width,height);
         // center

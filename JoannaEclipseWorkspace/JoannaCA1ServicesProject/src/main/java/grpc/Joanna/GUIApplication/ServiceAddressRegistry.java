@@ -1,7 +1,7 @@
 package grpc.Joanna.GUIApplication;
 
 // a class used across service discovery and classes to share service host information 
-public class ServiceDiscoveryInfo {
+public class ServiceAddressRegistry {
 	
 	// Patient Data Service
 	private ServiceAddress patientData = new ServiceAddress("", 0);
