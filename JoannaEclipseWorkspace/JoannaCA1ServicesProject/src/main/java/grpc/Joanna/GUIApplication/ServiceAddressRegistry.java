@@ -1,6 +1,6 @@
 package grpc.Joanna.GUIApplication;
 
-// a class used across service discovery and classes to share service host information 
+// a class used across service discovery and classes to share service address information across the UI classes
 public class ServiceAddressRegistry {
 	
 	// Patient Data Service
@@ -38,7 +38,5 @@ public class ServiceAddressRegistry {
 	public ServiceAddress getEcho() {
 		return this.echo;
 	}
-
-
 }
 

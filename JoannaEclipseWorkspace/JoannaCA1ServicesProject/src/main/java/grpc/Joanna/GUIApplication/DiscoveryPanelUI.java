@@ -16,14 +16,15 @@ import javax.swing.SwingConstants;
 import javax.swing.table.TableModel;
 import javax.swing.text.DefaultCaret;
 
+// UI Panel for the service discovery using JmDNS
 @SuppressWarnings("serial")
 public class DiscoveryPanelUI extends JPanel {
 	
-	private static final int ALWAYS_UPDATE = 0;
 	// class private fields
-	private JTextArea textArea;
-	private JTable table;
-	private boolean initialisation = true;
+	private static final int ALWAYS_UPDATE = 0; // used for UI layouting
+	private JTextArea consoleTextArea; // console text areas
+	private JTable table;		// table to list services and their addresses
+	private boolean initialisation = true; // used to move the splitter UI component further up right away
 
 	// constructor that also build the entire UI of this panel
 	public DiscoveryPanelUI() {
@@ -33,7 +34,7 @@ public class DiscoveryPanelUI extends JPanel {
 		// service info panel
 		JPanel topPanel = new JPanel();
 		
-		//Using JTable to display the services to track for discovery and their status
+		// Using JTable to display the services to track for discovery and their status
 	    // Preparing the data to be displayed inside the JTable
         String[][] data = {
             { "PatientDataService", "?", "?", "Offline" },
@@ -64,16 +65,17 @@ public class DiscoveryPanelUI extends JPanel {
         // creating a console-like output window to print text into
 		JPanel bottomPanel = new JPanel(new BorderLayout());
 		JLabel label = new JLabel("Info Console:");
-		this.textArea = new JTextArea ("IMPORTANT: Please start this app first and then only the service apps ...\n");
-		DefaultCaret caret = (DefaultCaret) textArea.getCaret();
+		this.consoleTextArea = new JTextArea ("IMPORTANT: Please start this app first and then only the service apps ...\n");
+		DefaultCaret caret = (DefaultCaret) consoleTextArea.getCaret();
 		caret.setUpdatePolicy(ALWAYS_UPDATE); // forcing the text area to automatically scroll down. As described here: https://stackoverflow.com/questions/9000649/automatically-scroll-to-the-bottom-of-a-text-area
-		JScrollPane scroll = new JScrollPane (this.textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane scroll = new JScrollPane (this.consoleTextArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		// adding components to the console panel
 		bottomPanel.add(label, BorderLayout.NORTH);
 		bottomPanel.add(scroll, BorderLayout.CENTER);
 		
+
 		//////////////////////////////////////////////////////////////////////////////////
-        // create a split pane to separate the table and the console window
+        // create a split pane to separate the table and the console window and give more room to the console area
         JSplitPane splitter = new JSplitPane(SwingConstants.HORIZONTAL, topPanel, bottomPanel);
         // moving the splitter further up by default as described on stackoverflow: https://stackoverflow.com/questions/2311449/jsplitpane-splitting-50-precisely
         splitter.setAlignmentX(0.5f);
@@ -93,15 +95,15 @@ public class DiscoveryPanelUI extends JPanel {
 	//////////////////////////////////////////////////////////////////////////////////
 	// logging into the pseudo console window
 	public void logInfo(String newInfo) {
-		String text = this.textArea.getText();
+		String text = this.consoleTextArea.getText();
 		text += "\n" + newInfo;
-		this.textArea.setText(text);
+		this.consoleTextArea.setText(text);
+		this.consoleTextArea.setCaretPosition(this.consoleTextArea.getText().length()); // scroll to bottom
 		System.out.println(newInfo);
-		
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////////
-	// allowing the discovery class to set service information upon discovery
+	// allowing the discovery class to set service information in the UI upon discovery
 	public void enablePatientDataService(String address, int port) {
 		TableModel model = this.table.getModel(); 
 		model.setValueAt(address, 0, 1);
@@ -109,10 +111,10 @@ public class DiscoveryPanelUI extends JPanel {
 		model.setValueAt("Online" , 0, 3);
 	}
 	
-	//allowing the discovery class to update the service information
+	// allowing the discovery class to update the service information
 	public void disablePatientDataService() {
-		TableModel model = this.table.getModel(); 
-		model.setValueAt("?", 0, 1);
+		TableModel model = this.table.getModel(); // getting table content
+		model.setValueAt("?", 0, 1);			  // reading one cell of the table
 		model.setValueAt("?" , 0, 2);
 		model.setValueAt("Offline" , 0, 3);		
 	}
@@ -125,7 +127,6 @@ public class DiscoveryPanelUI extends JPanel {
 		model.setValueAt("Online", 1, 3);
 	}
 	
-	//allowing the discovery class to update the service information
 	public void disablePermissionsService() {
 		TableModel model = this.table.getModel(); 
 		model.setValueAt("?", 1, 1);

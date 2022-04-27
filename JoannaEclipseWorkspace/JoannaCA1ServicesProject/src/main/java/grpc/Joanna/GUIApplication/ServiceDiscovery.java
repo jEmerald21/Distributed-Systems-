@@ -10,12 +10,12 @@ import javax.jmdns.ServiceListener;
 //JnDNS service discovery implementation. Handles the discovery of all 4 gRPC services
 public class ServiceDiscovery implements ServiceListener{
 	
-	MainWindowGUI gui;
-	DiscoveryPanelUI discoveryUI;
-	ServiceAddressRegistry serviceInfo;
+	// class fields & references
+	MainWindowGUI gui;					// reference to the main window for retrieving UI panels
+	DiscoveryPanelUI discoveryUI;		// to show the discovered information in the UI
+	ServiceAddressRegistry serviceInfo; // to store discovered service addresses
 
-	
-	//  method to start the service discovery
+	//  method for starting the service discovery
 	public void start(MainWindowGUI gui, ServiceAddressRegistry serviceInfo) {
 		
 		// store the reference into a field variable of this class instance
@@ -39,7 +39,6 @@ public class ServiceDiscovery implements ServiceListener{
 			e.printStackTrace();
 		}
 	}
-
 	
 	// react to services that have been discovered
 	public void serviceAdded(ServiceEvent event) {

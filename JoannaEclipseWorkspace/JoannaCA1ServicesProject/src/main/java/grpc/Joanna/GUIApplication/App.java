@@ -1,9 +1,10 @@
 package grpc.Joanna.GUIApplication;
 
 
-//main application for discovery service and service UI
+// Main application for JmDNS based service discovery and service interaction UI
 public class App {
 	
+	// static main method 
 	public static void main(String[] args) {
 		
 		// create a place where the discovery components can share service address informations
@@ -15,6 +16,7 @@ public class App {
 		
 		// create jmDNS service discovery
 		ServiceDiscovery discovery = new ServiceDiscovery();
+		
 		// starting the discovery and giving it direct access to the UI and the service info
 		discovery.start(ui, serviceInfo);
 	}

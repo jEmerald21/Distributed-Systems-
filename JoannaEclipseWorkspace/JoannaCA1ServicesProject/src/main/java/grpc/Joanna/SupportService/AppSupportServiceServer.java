@@ -13,6 +13,7 @@ import io.grpc.ServerBuilder;
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
+// Support Service Server Application
 public class AppSupportServiceServer
 {
 	// logging

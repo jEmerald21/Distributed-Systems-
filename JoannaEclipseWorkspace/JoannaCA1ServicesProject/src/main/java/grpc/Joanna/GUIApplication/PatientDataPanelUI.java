@@ -36,6 +36,7 @@ import grpc.Joanna.PatientDataService.PatientDataServiceGrpc.PatientDataServiceS
 import grpc.Joanna.PatientDataService.Prescription;
 import grpc.Joanna.PatientDataService.RequestResult;
 
+// UI to interact with the Patient Data Service
 @SuppressWarnings("serial")
 public class PatientDataPanelUI extends JPanel implements ActionListener {
 
@@ -43,7 +44,7 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 	private JTextField doctorID;
 	private JTextField patientID;
 	private JFormattedTextField date;
-	private ServiceAddressRegistry discoveryInfo;
+	private ServiceAddressRegistry serviceAddressRegistry;
 	private Font headerFont;
 	JTextArea consoleTextfield;
 	JTextArea prescriptionTextfield;
@@ -58,13 +59,13 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 	/////////////////////////////////////////////////////////////////////////////////
 	// constructor
 	public PatientDataPanelUI(ServiceAddressRegistry addressInfo) {
-		super();
-		this.discoveryInfo = addressInfo; // service address info
+		super(); // calling the constructor of the parent class JPanel
+		this.serviceAddressRegistry = addressInfo; // holds the known service addresses
 		this.buildUI(); // UI creation
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////
-	// implementation of ActionListener interface for reaction to submit buttons
+	// implementation of ActionListener interface for reaction to various submit buttons in the UI
 	public void actionPerformed (ActionEvent eventDetails){
         if(eventDetails.getSource() == this.submitPrescriptionButton){
         	print("Prescription Submission started ...");
@@ -80,15 +81,14 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 	    	print("Lab Results Submission started ...");
 	    	this.submitLabResults();
 	    }
-        // todo more ...
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////
-	// service client & submission of prescription
+	// service client & submission of prescription. Unary gRPC messaging
 	private void submitPrescription() {
 		
 		// checking if we know the address of the service
-		ServiceAddress address = discoveryInfo.getPatientDataInfo();
+		ServiceAddress address = serviceAddressRegistry.getPatientDataInfo();
 		if(address.available == false) {
 			print("... ERROR: PatientData Service address is not known! Aborting!");
 		} 
@@ -101,9 +101,7 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 					.usePlaintext()
 					.build();
 			// using gRPC "stubs" that were generated from the proto files using the proto compiler
-			PatientDataServiceBlockingStub blockingRPCStub = PatientDataServiceGrpc.newBlockingStub(channel);
-			//PatientDataServiceStub asyncStub = PatientDataServiceGrpc.newStub(channel);
-			
+			PatientDataServiceBlockingStub blockingRPCStub = PatientDataServiceGrpc.newBlockingStub(channel);			
 			Prescription request = Prescription.newBuilder()
 											.setDoctorID(this.doctorID.getText())
 											.setPatientID(this.patientID.getText())
@@ -118,11 +116,11 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////
-	// service client & submission of lab result
+	// service client & submission of lab result. Unary gRPC messaging
 	private void submitDoctorNote() {
 		
 		// checking if we know the address of the service
-		ServiceAddress address = discoveryInfo.getPatientDataInfo();
+		ServiceAddress address = serviceAddressRegistry.getPatientDataInfo();
 		if(address.available == false) {
 			print("... ERROR: PatientData Service address is not known! Aborting!");
 		} 
@@ -142,8 +140,6 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 											.setDoctorID(this.doctorID.getText())
 											.setPatientID(this.patientID.getText())
 											.setNotes(this.doctorNotesTextfield.getText())
-											//.setDiagnosis(host)
-											//.setRecommendations(host)
 											.build();
 
 			grpc.Joanna.PatientDataService.RequestResult response = blockingStub.addDoctorNotes(request);
@@ -154,11 +150,11 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////
-	// service client & submission to retrieve the list of existing prescriptions from ther server
+	// service client & submission to retrieve the list of existing prescriptions from the server via server-side streaming
 	private void refreshPrescriptionsList() {
 		
 		// checking if we know the address of the service
-		ServiceAddress address = discoveryInfo.getPatientDataInfo();
+		ServiceAddress address = serviceAddressRegistry.getPatientDataInfo();
 		if(address.available == false) {
 			print("... ERROR: PatientData Service address is not known! Aborting!");
 		} 
@@ -179,6 +175,7 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 										.setPatientID(this.patientID.getText())
 										.build();
 			
+			// handling server side streaming
 			// implementation reference taken from here: https://www.baeldung.com/java-grpc-streaming
 			int rowindex = 0;
 		    Iterator<Prescription> prescriptions;
@@ -203,10 +200,10 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 		}
 	}
 	
-	
+	// client side streaming of the list of entered lab results
 	private void submitLabResults() {
 		// checking if we know the address of the service
-		ServiceAddress address = discoveryInfo.getPatientDataInfo();
+		ServiceAddress address = serviceAddressRegistry.getPatientDataInfo();
 		if(address.available == false) {
 			print("... ERROR: PatientData Service address is not known! Aborting!");
 		} 
@@ -262,25 +259,26 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 		        }
 		    } catch (RuntimeException e) {
 		        requestObserver.onError(e);
+		        print("Error during sening labs results: " + e.getMessage());
 		        throw e;
-			
 		    }
 			requestObserver.onCompleted();		    			
 		}
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////
-	// UI creation
+	// UI creation of the tab / panel
 	private void buildUI() {
 		this.setBackground(new Color(80,163,233));
 		this.headerFont = new Font("Tahoma", Font.PLAIN, 20);
 		Font formFont = new Font("Tahoma", Font.PLAIN, 15);
 		
+		// layout usage of horizontal blocks from top to down
 		BoxLayout topdownBox = new BoxLayout(this, BoxLayout.Y_AXIS);
 		this.setLayout(topdownBox);
 		
 		////////////////////////////////////////////
-		// global input form
+		// global input fields needed for many gRPC calls
 		this.add(UITools.CreateSectionDivder("Globals:", new Color(50,133,203)));
 		// section header
 		JPanel globalsFormSection = new JPanel();
@@ -419,11 +417,9 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
         this.submitLabResultsButton = new JButton("Submit New Lab Results");
         this.submitLabResultsButton.addActionListener(this); // tells the button to call the action performed method on this class
         this.add(submitLabResultsButton);
-
-        
         this.add(UITools.CreateSpacerBar(10, new Color(80,163,233)));
         
-		////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////
         // get-prescription section
 		// header
         this.add(UITools.CreateSectionDivder("Retrieve ExistingPrescriptions:", new Color(50,133,203)));
@@ -432,12 +428,11 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
         getPrescriptionSection.setBackground(new Color(80,163,233));
         
         // add "refresh" button to get prescriptions from the server
-        // submit prescription
         this.getPrescriptionsButton = new JButton("Refresh 'Prescriptions History'");
         this.getPrescriptionsButton.addActionListener(this); // tells the button to call the action performed method on this class
         this.add(getPrescriptionsButton);
  
-		//Using JTable to display the services to track for discovery and their status
+		// Using JTable to display the services to track for discovery and their status
         // Preparing the column names of the JTable
         String[] columnNames = { "Date", "Prescripton", "PatientID", "DoctorID" };
         
@@ -464,22 +459,20 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
         scrollPane.setViewportView(prescriptionsTable);
         this.add(scrollPane);
         this.add(UITools.CreateSpacerBar(10, new Color(80,163,233)));
-           
 
 
-		////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////
         // add console section
         this.add(UITools.CreateSectionDivder("Console:",  new Color(50,133,203)));
 		this.consoleTextfield = UITools.CreateAndAddConsoleWindow(this, "");
-		this.add(UITools.CreateSectionDivder(" ", new Color(80,163,233)));
-		//this.add(UITools.CreateSpacerBar(10, new Color(150,150,213)));
+		//this.add(UITools.CreateSectionDivder(" ", new Color(80,163,233)));
 	}
 	
 	
-	// add text to the in-app simulated console and also to the main console
+	// add text to the in-app simulated console and also print to the main console
 	public void print(String text) {
 		this.consoleTextfield.append(text + "\n");
-		this.consoleTextfield.setCaretPosition(this.consoleTextfield.getText().length());
+		this.consoleTextfield.setCaretPosition(this.consoleTextfield.getText().length()); // scroll to bottom
 		System.out.println("[PatientDataPanelUI]: " + text);
 	}
 }

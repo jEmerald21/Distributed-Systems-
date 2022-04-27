@@ -11,13 +11,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.text.DefaultCaret;
 
+// custom helper methods for creating UI elements that are needed more than once
 public final class UITools {
 	
+	// private fields
 	final static Font formFont = new Font("Tahoma", Font.PLAIN, 15);
 	final static Font headerFont = new Font("Tahoma", Font.BOLD, 18);
 	
+	// private constructor
 	private UITools() {}; 
-	
 	
 	// helper function to create a header panel with a title on the left side
 	public static JPanel CreateSectionDivder(String title, Color color) {
@@ -59,6 +61,7 @@ public final class UITools {
         return sectionPanel;
 	}
 	
+	// creation of a virtual console to make it easier to see debug information
 	public static JTextArea CreateAndAddConsoleWindow(JPanel parent, String initialText) {
 		JPanel consolePanel = new JPanel();
 		JTextArea textArea = new JTextArea (" " + initialText + "\n");

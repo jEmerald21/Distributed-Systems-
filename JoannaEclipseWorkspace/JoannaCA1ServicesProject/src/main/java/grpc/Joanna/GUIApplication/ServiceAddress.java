@@ -1,6 +1,6 @@
 package grpc.Joanna.GUIApplication;
 
-// simple address info class to make storing and retrieving these two informations as combo easier
+// simple address info class to make storing and retrieving these two informations at once simpler
 public class ServiceAddress {
 	
 	public String hostAddress; // service server address

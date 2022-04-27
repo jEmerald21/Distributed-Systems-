@@ -5,16 +5,17 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import java.awt.Color;
 
-// this is the main window of the app with different panels for each tab
+// this is the main window of the application containing different panels for each tab
 public class MainWindowGUI {
 	
+	// private fields of the class
 	private DiscoveryPanelUI discoveryUI;
 	private PatientDataPanelUI patientDataPanel;
-	private ServiceAddressRegistry discoveryInfo;
+	private ServiceAddressRegistry serviceAdressRegistry;	// contains the known addresses of the discovered services
 	
-	// constructor
+	// constructor. Getting a reference to the service register
 	public MainWindowGUI(ServiceAddressRegistry info) {
-		this.discoveryInfo = info;
+		this.serviceAdressRegistry = info;
 	}
 	
 	// build the main UI
@@ -27,14 +28,13 @@ public class MainWindowGUI {
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT );
         tabbedPane.setBorder(null);
         
-        // panel pages of the tabed view
+        // panel pages of the tabbed view
         discoveryUI = new DiscoveryPanelUI(); // new JPanel(new BorderLayout());
         discoveryUI.setBackground(new Color(192,179,160));
         tabbedPane.addTab("Service Discovery", discoveryUI);
         tabbedPane.setBackgroundAt(0, new Color(253,235,211)); // tab button colour
-        //this.populateDiscoveryPanel(discoveryPanel);
         
-        patientDataPanel = new PatientDataPanelUI(discoveryInfo); // passing reference to service discovery info class instance
+        patientDataPanel = new PatientDataPanelUI(serviceAdressRegistry); // passing reference to service discovery info class instance
         patientDataPanel.setBackground(new Color(38,78,112));
         tabbedPane.addTab("Patient Data", patientDataPanel);
         tabbedPane.setBackgroundAt(1, new Color(80,163,233)); // tab button color
@@ -53,10 +53,10 @@ public class MainWindowGUI {
         echoPanel.setBackground(Color.PINK);
         tabbedPane.addTab("String Echo", echoPanel);
         tabbedPane.setBackgroundAt(4, Color.pink);  
- 
         
         // add JTabbedPane to window 
         window.add(tabbedPane);
+        
         // show window
         window.setVisible(true);
 	}
@@ -68,7 +68,7 @@ public class MainWindowGUI {
         int height = 725;
         // set size
         window.setSize(width,height);
-        // center
+        // center window on the screen
         window.setLocationRelativeTo(null);
         window.pack();
         // revert size as it got undone when using .pack()

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 // GRPC
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -13,6 +12,7 @@ import io.grpc.ServerBuilder;
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
+// Patient Data Service Server Application
 public class AppPatientDataServiceServer
 {
 	// logging
@@ -58,12 +58,6 @@ public class AppPatientDataServiceServer
 							.start();
 			
 			System.out.println("... running ...");
-	        // shutdown hook
-//	        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-//	            System.out.println("gRPC server is shutting down!");
-//	            server.shutdown();
-//	            System.out.println("Terminated: " + server.isTerminated());
-//	        }));
 			server.awaitTermination();
 			
 		}
@@ -76,7 +70,7 @@ public class AppPatientDataServiceServer
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
-	// Register JmDNS
+	// Register service address via JmDNS
 	private void registerWithJmDNS(String serviceType, String serviceName, int port, String serviceDescription)
 	{
 		try
