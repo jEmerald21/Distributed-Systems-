@@ -219,41 +219,53 @@ public class PatientDataPanelUI extends JPanel implements ActionListener {
 					.usePlaintext()
 					.build();
 			
-//			// client side streaming
-//			//PatientDataServiceBlockingStub blockingRPCStub = PatientDataServiceGrpc.newBlockingStub(channel);
-//			PatientDataServiceFutureStub asyncRPCStub = PatientDataServiceGrpc.newFutureStub(channel);
-//		    StreamObserver<RequestResult> responseObserver = new StreamObserver<RequestResult>() {
-//		        @Override
-//		        public void onNext(RequestResult result) {
-//		            print("");
-//		        }
-//
-//		        @Override
-//		        public void onCompleted() {
-//		            print("Finished clientSideStreamingGetStatisticsOfStocks");
-//		        }
-//
-//				@Override
-//				public void onError(Throwable t) {
-//					// TODO Auto-generated method stub
-//					
-//				}
+			// client side streaming
+			PatientDataServiceStub rpcStub = PatientDataServiceGrpc.newStub(channel);
+		    StreamObserver<RequestResult> responseObserver = new StreamObserver<RequestResult>() {
+		        @Override
+		        public void onNext(RequestResult result) {
+		            print("  .... Server received the lab result data.");
+		        }
 
-		        // Override OnError ...
-//		    };
-//		    
-//		    StreamObserver<LabResult> requestObserver = asyncRPCStub.AddLabResults(responseObserver);
-//		    try {
-////		        for (LabResult stock : stocks) {
-////		            print("REQUEST: {0}, {1}", stock.getTickerSymbol(), stock.getCompanyName());
-////		            requestObserver.onNext(stock);
-////		        }
-//		    } catch (RuntimeException e) {
-//		        requestObserver.onError(e);
-//		        throw e;
+		        @Override
+		        public void onCompleted() {
+		            print("Completed sending Lab Results");
+		        }
+
+				@Override
+				public void onError(Throwable t) {
+					print("Error in sending Lab Result: " + t.getMessage());
+					
+				}
+		    };
+		    
+		    StreamObserver<LabResult> requestObserver = rpcStub.addLabResults(responseObserver);
+		    try {
+		    	// get the table content
+	            TableModel resultsTable = this.labResultsTable.getModel();
+	            // iterate through the table row by row
+	            for(int i = 0; i < resultsTable.getRowCount(); i++) {
+	            	// retrieve the data from the row
+	            	String labType = resultsTable.getValueAt(i, 0).toString();
+	            	String labResult = resultsTable.getValueAt(i, 1).toString();
+	            	String labDiagnosis= resultsTable.getValueAt(i, 2).toString();
+	            	// only accept lines that have at least one cell with content
+	            	if(labType.isEmpty() == false || labResult.isEmpty() == false || labDiagnosis.isEmpty() == false) {
+	            		LabResult resultMsg = LabResult.newBuilder()
+	            							 .setLabType(labType)
+	            							 .setResults(labResult)
+	            							 .setDiagnosis(labDiagnosis)
+	            							 .build();
+	            		requestObserver.onNext(resultMsg);
+	            		print("Sending Lab Result: " + labType + ", " + labResult);
+	            	}
+		        }
+		    } catch (RuntimeException e) {
+		        requestObserver.onError(e);
+		        throw e;
 			
-//		    }
-//			requestObserver.onCompleted();		    			
+		    }
+			requestObserver.onCompleted();		    			
 		}
 	}
 	
